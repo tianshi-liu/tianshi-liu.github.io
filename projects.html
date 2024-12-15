@@ -1,0 +1,86 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>Tianshi Liu's Research Projects</title>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="css/style_research.css">
+</head>
+
+<body>
+
+  <section id="video" class="home">
+    <nav class="main-nav">
+      <ul>
+        <li>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><div class="dropdown"><button class="dropbtn"><a href="cv.html", class="active">CV</a></button>
+            <div class="dropdown-content">
+              <a href="cv.html#work">Work</a>
+              <a href="cv.html#education">Education</a>
+              <a href="cv.html#awards">Awards</a>
+              <a href="cv.html#publications">Publications</a>
+            </div>
+            </div></li>
+            <li><div class="dropdown"><button class="dropbtn"><a href="projects.html", class="active">Research</a></button>
+              <div class="dropdown-content">
+                <a href="projects.html#major">Projects</a>
+                <a href="projects.html#notes">Notes</a>
+              </div>
+              </div>
+            </li><!--<li><a href="personal.html">Personal life</a></li>-->
+          </ul>
+        </li>
+      </ul>
+    </nav>
+    <h1>Research Projects</h1>
+  </section>
+
+  <section id="main-content">
+    <div class="blank">
+    </div>
+    <div class="columns features">
+      <h3><a name="major">Major research projects</a></h3>
+      <p>This aims to be a compilation of my main research projects - those that I spent years working on and led to publications on peer-reviewed journals (including publications under review or in preparation).</p>
+      <div class="horizontalgap-large"></div>
+
+      <p>
+        <a href="projects/alaska.md">&bull; <b>Full-waveform seismic tomography of the Alaskan lithosphere</b></a>
+      </p>
+      <div class="abstract">
+        Shear-wave velocity structure of the lithosphere across the entire Alaska is imaged by analyzing the seismic data recorded by ~ 400 stations, using the adjoint tomography method. By fitting > 1 million waveforms with 56 iterative model updates, a shear-wave velocity model is obtained, featuring several features of tectonic significance in the region. Despite the efforts in optimizing the imaging workflow, the project consumes ~ 2 million CPU hours on the supercomputer "Niagara" at University of Toronto.
+      </div>
+      <div class="horizontalgap-big"></div>
+
+      <p>
+        <a href="projects/injection.md">&bull; <b>Wavefield injection based on interface discontinuity conditions</b></a>
+      </p>
+      <div class="abstract">
+        In seismic wave simulations, it is sometimes useful to inject a <i>background</i> wavefield into a domain of interest, so that the interaction between the incoming wavefield and the structure can be studied. This project studies the <i>wavefield injection problem</i> based on its equivalence to another seemingly unrelated problem - the <i>interface discontinuity condition problem</i>.
+      </div>
+      <div class="horizontalgap-big"></div>
+
+      <p>
+        <a href="projects/curvilinear_pml.md">&bull; <b>Perfectly matched layer (PML) on curvilinear grids</b></a>
+      </p>
+      <div class="abstract">
+        Perfectly matched layer (PML) is known to have superior performance in absorbing waves at the truncation boundaries of computational domains. However, PML is usually derived and implemented on Cartesian grids, and therefore requires the computational domain to align with the (x, y, z) coordinates. Such requirement restricts the use of PML in wave simulations with deformed geometries (e.g., spherical geometry of the Earth). This project attempts to implement PML on curvilinear grids based on coordinate transformations between the curvilinear and Cartesian coordinates.
+      </div>
+      <div class="horizontalgap-big"></div>
+      
+      <div class="horizontalgap-large"></div>
+      <h3><a name="notes">Research notes</a></h3>
+      <p>Brainstorms, random notes, implementation of new algorithms, etc. Not chunky enough for publication, but in my view, creative and interesting as well. </p>
+      <div class="horizontalgap-large"></div>
+
+      <p>
+        <a href="projects/kernel_pytorch.md">&bull; <b>The connection between the adjoint method in FWI and the backpropagation in deep learning (calculating sensitivity kernels using PyTorch)</b></a>
+      </p>
+      <div class="abstract">
+        The gradient of the objective function with respect to the structural parameters, or the <i>sensitivity kernel</i>, is a key component in full-waveform inversion (FWI). Two decades ago, derived by Lagrangian multipliers or Born scattering, it is shown that thesensitivity kernel can be calculated using the <i>adjoint method</i>, which involves the correlation between a forward and an adjoint wavefield (e.g., the seminal paper by Tromp, Tape &amp; Liu, 2005), triggering the development of FWI in the following years. On the other hand, <i>backpropagation</i> and <i>auto-differentiation</i> enables efficient calculation of the gradient of a deep learning model with respect to its parameters. This note reveals that (1) the seismic wave equation can be seen as a special recurrent neural network, and (2) the adjoint method can be derived from the backpropagation algorithm. To further illustrate this connection, a sensitivity kernel shown in Tromp, Tape &amp; Liu (2005) is reproduced using PyTorch.
+      </div>
+      <div class="horizontalgap-big"></div>
+    </div>
+  </section>
+</body>
+</html>
