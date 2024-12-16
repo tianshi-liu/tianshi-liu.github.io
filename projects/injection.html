@@ -1,3 +1,44 @@
 <script src="https://rawcdn.githack.com/oscarmorrison/md-page/232e97938de9f4d79f4110f6cfd637e186b63317/md-page.js"></script><noscript>
 
 # Wavefield injection based on interface discontinuity conditions
+## Definition of the wavefield injection problem
+We define and discuss the wavefield injection problem in the context of linear elasticity. The wavefield is governed by the elastic wave equation
+
+$$\rho\frac{\partial^2 \mathbf{u}}{\partial t^2}-\nabla\cdot(\mathbf{C}:\nabla\mathbf{u}) = \mathbf{f}\qquad \text{in}\ \oplus,$$
+
+subject to certain boundary condition at $\partial\oplus$, where $\oplus$ denotes the entire medium of wave propagation (e.g., the whole Earth). 
+
+Now suppose that we have a *local domain* $\Omega\in\oplus$ in which structural perturbations exist and the wave propagations are of particular interest, but the source $\mathbf{f}$ is supported far away from $\Omega$, and directly solving the wavefield in $\oplus$ is too expensive. If we happen to have access to some *background wavefield* $\mathbf{u}^0$ outside $\Omega$
+
+$$\rho^0\frac{\partial^2 \mathbf{u}^0}{\partial t^2}-\nabla\cdot(\mathbf{C}^0:\nabla\mathbf{u}) = \mathbf{f}\qquad \text{in}\ \oplus\setminus\Omega,$$
+
+then it may be possible to reconstruct $\mathbf{u}$ using $\mathbf{u}^0$, with numerical simulations only performed in $\Omega$ (potentially in the neighbourhood of $\Omega$, but not in the entire $\oplus$).
+
+As a more rigorous definition, if
+1. there is no structural perturbations in the local domain
+
+$$\rho = \rho^0, \qquad \mathbf{C} = \mathbf{C}^0 \qquad \text{in}\ \overline{\oplus\setminus\Omega},$$
+
+2. the source term is supported outside the local domain
+
+$$\mathbf{f} = 0 \qquad \text{in}\ \overline{\Omega},$$
+
+then reconstructing $\mathbf{u}$ using $\mathbf{u}^0$ is called the *wavefield injection problem*.
+
+## The equivalence between the wavefield injection problem and the interface discontinuity condition problem
+If we define wavefield
+
+$$\mathbf{w}:=\left\\{\begin{array}{ll}
+\mathbf{u} & \qquad \text{in}\ \Omega, \\
+\mathbf{u}-\mathbf{u}^0   & \qquad \text{in}\ \oplus\setminus\Omega,
+\end{array}\right.$$
+
+then $\mathbf{w}$ satisfies the source-free wave equation inside and outside $\Omega$
+
+$$\rho\frac{\partial^2 \mathbf{w}}{\partial t^2}-\nabla\cdot(\mathbf{C}:\nabla\mathbf{w}) = 0\qquad \text{in}\ \oplus,$$
+
+but $\mathbf{w}$ is discontinuous in its displacement and traction across the interface between $\Omega$ and $\oplus\setminus\Omega$
+
+$$\mathbf{w}\Big|\_{\Gamma+}^{\Gamma-} = \mathbf{u}^0\Big|\_{\Gamma},$$
+
+$$\hat{\mathbf{n}}\cdot(\mathbf{C}:\nabla\mathbf{w})\Big|\_{\Gamma+}^{\Gamma-} = \hat{\mathbf{n}}\cdot(\mathbf{C}:\nabla\mathbf{u}^0)\Big|\_{\Gamma}.$$
