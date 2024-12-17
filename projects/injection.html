@@ -1,15 +1,15 @@
 <script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-      tex2jax: {
-        inlineMath: [ ['$','$'], ["\\(","\\)"] ],
-        processEscapes: true
-      }
-    });
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
 </script>
 
 <script
-  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"
-  type="text/javascript">
+src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"
+type="text/javascript">
 </script>
 
 <h1> Wavefield injection based on interface discontinuity conditions</h1>
@@ -19,9 +19,9 @@ $$\rho\frac{\partial^2 \mathbf{u}}{\partial t^2}-\nabla\cdot(\mathbf{C}:\nabla\m
 subject to certain boundary condition at $\partial\oplus$, where $\oplus$ denotes the entire medium of wave propagation (e.g., the whole Earth). </p>
 
 <p>Now suppose that we have a <em>local domain</em> $\Omega\in\oplus$ in which structural perturbations exist and the wave propagations are of particular interest, but the source $\mathbf{f}$ is supported far away from $\Omega$, and directly solving the wavefield in $\oplus$ is too expensive. If we happen to have access to some <em>background wavefield</em> $\mathbf{u}^0$ outside $\Omega$
-  
+
 $$\rho^0\frac{\partial^2 \mathbf{u}^0}{\partial t^2}-\nabla\cdot(\mathbf{C}^0:\nabla\mathbf{u}) = \mathbf{f}\qquad \text{in}\ \oplus\setminus\Omega,$$
-  
+
 then it may be possible to reconstruct $\mathbf{u}$ using $\mathbf{u}^0$, with numerical simulations only performed in $\Omega$ (potentially in the neighbourhood of $\Omega$, but not in the entire $\oplus$).</p>
 
 
@@ -55,3 +55,21 @@ but $\mathbf{w}$ is discontinuous in its displacement and traction across the in
 $$\mathbf{w}\Big|_{\Gamma+}^{\Gamma-} = \mathbf{u}^0\Big|_{\Gamma},$$
 
 $$\hat{\mathbf{n}}\cdot(\mathbf{C}:\nabla\mathbf{w})\Big|_{\Gamma+}^{\Gamma-} = \hat{\mathbf{n}}\cdot(\mathbf{C}:\nabla\mathbf{u}^0)\Big|_{\Gamma}.$$</p>
+
+
+<p>Solving the wave equation subject to prescribed displacement and traction discontinuity condition on an interface is called the <em>interface discontinuity condition problem</em>. It can be proven that the interface discontinuity condition problem is <em>well-defined</em> in the sense that the wavefield is uniquely determined by the interface discontinuity condition. It should be noted that in order to uniquely determine the solution, the displacement <u>and</u> traction discontinuities must be simultaneously provided. This is in contrast with the well-known <em>boundary value problem</em>, of which the solution can be uniquely determined by displacement <u>or</u> traction boundary condition.</p>
+
+<p>Note that the <em>kinematic fault simulation</em> problem is a special case of the interface discontinuity condition problem: the displacement discontinuity is prescribed to be the slip on the fault, but the traction discontinuity must be zero because of Newton's third law. The full interface discontinuity condition problem of the elastic wave equation is rarely encountered in the real world, because there is hardly any case in which displacement and traction can jump across an interface. In comparison, the interface discontinuity condition problem for the Maxwell equation, which describes superficial charge and current, is more common.</p>
+
+<h2> Numerical examples</h2>
+
+<p>By solving the interface discontinuity condition problem, we can simulate the injection of a background wavefield into a local domain containing scatterers. </p>
+<p>This feature is supported in <a href="https://github.com/SPECFEM/specfem3d/pull/1706">SPECFEM3D</a>. Currently only CPU version is merged in the repository, GPU version will be merged soon.</p>
+<p>The animations below show the total wavefield $\mathbf{u}$ (left) and the solution to the interface discontinuity condition problem $\mathbf{w}$ (right).</p>
+
+<center><img src="snapshot_total.gif" width="200" style="margin: 10px 10px 10px 10px;">
+        <img src="snapshot_injection.gif" width="200" style="margin: 10px 10px 10px 10px;"></center>
+
+
+<p>Note that the wave can be injected from an inner domain into an outer domain (often referred to as <em>wavefield extrapolation</em>). The animation illustrates the injection of the wavefield excited by an explosion (Aki &amp; Richards 2002, P77, eq. 4.29) into a layered half-space.</p>
+<center><img src="displ_X.gif" width="500"></center>
