@@ -45,7 +45,7 @@
       <div class="horizontalgap-large"></div>
 
       <p>
-        <a href="projects/alaska.md">&bull; <b>Full-waveform seismic tomography of the Alaskan lithosphere</b></a>
+        <a href="projects/alaska.html">&bull; <b>Full-waveform seismic tomography of the Alaskan lithosphere</b></a>
       </p>
       <div class="abstract">
         Shear-wave velocity structure of the lithosphere across the entire Alaska is imaged by analyzing the seismic data recorded by ~ 400 stations, using the adjoint tomography method. By fitting > 1 million waveforms with 56 iterative model updates, a shear-wave velocity model is obtained, featuring several features of tectonic significance in the region. Despite the efforts in optimizing the imaging workflow, the project consumes ~ 2 million CPU hours on the supercomputer "Niagara" at University of Toronto.
@@ -61,7 +61,7 @@
       <div class="horizontalgap-big"></div>
 
       <p>
-        <a href="projects/curvilinear_pml.md">&bull; <b>Perfectly matched layer (PML) on curvilinear grids</b></a>
+        <a href="projects/curvilinear_pml.html">&bull; <b>Perfectly matched layer (PML) on curvilinear grids</b></a>
       </p>
       <div class="abstract">
         Perfectly matched layer (PML) is known to have superior performance in absorbing waves at the truncation boundaries of computational domains. However, PML is usually derived and implemented on Cartesian grids, and therefore requires the computational domain to align with the (x, y, z) coordinates. Such requirement restricts the use of PML in wave simulations with deformed geometries (e.g., spherical geometry of the Earth). This project attempts to implement PML on curvilinear grids based on coordinate transformations between the curvilinear and Cartesian coordinates.
@@ -74,7 +74,7 @@
       <div class="horizontalgap-large"></div>
 
       <p>
-        <a href="projects/kernel_pytorch.md">&bull; <b>The connection between the adjoint method in FWI and the backpropagation in deep learning (calculating sensitivity kernels using PyTorch)</b></a>
+        <a href="projects/kernel_pytorch.html">&bull; <b>The connection between the adjoint method in FWI and the backpropagation in deep learning (calculating sensitivity kernels using PyTorch)</b></a>
       </p>
       <div class="abstract">
         The gradient of the objective function with respect to the structural parameters, or the <i>sensitivity kernel</i>, is a key component in full-waveform inversion (FWI). Two decades ago, derived by Lagrangian multipliers or Born scattering, it is shown that thesensitivity kernel can be calculated using the <i>adjoint method</i>, which involves the correlation between a forward and an adjoint wavefield (e.g., the seminal paper by Tromp, Tape &amp; Liu, 2005), triggering the development of FWI in the following years. On the other hand, <i>backpropagation</i> and <i>auto-differentiation</i> enables efficient calculation of the gradient of a deep learning model with respect to its parameters. This note reveals that (1) the seismic wave equation can be seen as a special recurrent neural network, and (2) the adjoint method can be derived from the backpropagation algorithm. To further illustrate this connection, a sensitivity kernel shown in Tromp, Tape &amp; Liu (2005) is reproduced using PyTorch.
