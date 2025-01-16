@@ -80,6 +80,14 @@
         The gradient of the objective function with respect to the structural parameters, or the <i>sensitivity kernel</i>, is a key component in full-waveform inversion (FWI). Two decades ago, derived by Lagrangian multipliers or Born scattering, it is shown that thesensitivity kernel can be calculated using the <i>adjoint method</i>, which involves the correlation between a forward and an adjoint wavefield (e.g., the seminal paper by Tromp, Tape &amp; Liu, 2005), triggering the development of FWI in the following years. On the other hand, <i>backpropagation</i> and <i>auto-differentiation</i> enables efficient calculation of the gradient of a deep learning model with respect to its parameters. This note reveals that (1) the seismic wave equation can be seen as a special recurrent neural network, and (2) the adjoint method can be derived from the backpropagation algorithm. To further illustrate this connection, a sensitivity kernel shown in Tromp, Tape &amp; Liu (2005) is reproduced using PyTorch.
       </div>
       <div class="horizontalgap-big"></div>
+
+      <p>
+        <a href="projects/wavelet_measurement.html">&bull; <b>Frequency-time-dependent phase-shift measurement based on continuous wavelet transform for multi-mode surface waves</b></a>
+      </p>
+      <div class="abstract">
+        For surface-wave FWI, it is sometimes desirable to measure and fit multiple surface-wave modes (fundamental and overtone) within one window. Different modes may exhibit different dispersion, and therefore it is hard to use frequency-dependent phase-shift measurement to fit all the modes. This note attempts to explore the use of frequency-time-dependent phase-shift measurement based on continuous wavelet transform to fit multi-mode surface waves. A very simple toy experiment is provided using PyTorch.
+      </div>
+      <div class="horizontalgap-big"></div>
     </div>
   </section>
 </body>
